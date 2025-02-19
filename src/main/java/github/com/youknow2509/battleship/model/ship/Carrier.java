@@ -1,0 +1,4 @@
+package github.com.youknow2509.battleship.model.ship;
+
+public class Carrier extends Ship{
+}
