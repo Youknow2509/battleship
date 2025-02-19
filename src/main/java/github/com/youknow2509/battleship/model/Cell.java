@@ -1,13 +1,14 @@
 package github.com.youknow2509.battleship.model;
 
-import github.com.youknow2509.battleship.model.ship.ShipType;
+import github.com.youknow2509.battleship.model.ship.Ship;
 
 public class Cell {
     // variables
     private boolean hasShip;
     private boolean isHit;
     private Position position;
-    private ShipType shipType;
+    private Ship shipInCell;
+    private int positionShip;
 
     // constructor
     public Cell() {
@@ -22,6 +23,18 @@ public class Cell {
     }
 
     // getters and setters
+    public Ship getShipInCell() {
+        return shipInCell;
+    }
+    public void setShipInCell(Ship shipInCell) {
+        this.shipInCell = shipInCell;
+    }
+    public int getPositionShip() {
+        return positionShip;
+    }
+    public void setPositionShip(int positionShip) {
+        this.positionShip = positionShip;
+    }
     public boolean isHasShip() {
         return hasShip;
     }
@@ -44,13 +57,5 @@ public class Cell {
 
     public void setPosition(Position position) {
         this.position = position;
-    }
-
-    public ShipType getShipType() {
-        return shipType;
-    }
-
-    public void setShipType(ShipType shipType) {
-        this.shipType = shipType;
     }
 }
