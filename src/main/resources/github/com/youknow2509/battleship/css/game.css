@@ -1,0 +1,49 @@
+.header-label {
+    font-size: 20px;
+    font-weight: bold;
+    -fx-text-fill: white;
+}
+
+.fleet-grid {
+    background-color: lightgray;
+}
+
+.grid-button {
+    background-color: lightblue;
+}
+
+.your-fleet {
+    -fx-pref-width: 32px;
+    -fx-pref-height: 353px;
+    -fx-background-color: #0364EE;
+}
+
+.bot-fleet {
+    -fx-pref-width: 32px;
+    -fx-pref-height: 353px;
+    -fx-background-color: #686464;
+}
+
+.text-your-fleet {
+    -fx-text-fill: #FFF;               /* Equivalent to color */
+    -fx-alignment: center;              /* Equivalent to text-align */
+    -fx-font-family: "Futura Std";      /* Set font family */
+    -fx-font-size: 12px;                /* Font size */
+    -fx-font-style: normal;             /* Normal font style */
+    -fx-font-weight: bold;              /* Equivalent to font-weight: 700 */
+    -fx-line-spacing: 0px;              /* JavaFX doesn't have line-height */
+    -fx-letter-spacing: 1.8px;          /* JavaFX doesn't directly support this */
+    -fx-text-transform: uppercase;      /* Equivalent to text-transform: uppercase */
+}
+
+.text-number {
+    -fx-pref-width: 31px;
+    -fx-pref-height: 31px;
+    -fx-alignment: center;                  /* Align text in center */
+    -fx-text-fill: rgb(151, 156, 172); /* Text color with opacity */
+    -fx-font-family: "Futura";               /* Font family */
+    -fx-font-size: 15px;                     /* Font size */
+    -fx-font-weight: bold;                   /* Font weight 700 */
+    -fx-text-transform: uppercase;           /* Uppercase text */
+    -fx-rotate: 0;                            /* No rotation */
+}

@@ -34,8 +34,8 @@ public class CreateBroadGame {
 
     // random ship placement on the board
     public void randomShipPlacement() {
-        int index = 0;
         for (Ship ship : ships) {
+            int index = 0;
             boolean isPlaced = false;
             while (!isPlaced) {
                 // random position
@@ -80,7 +80,7 @@ public class CreateBroadGame {
                                 grid[x + i][y].setHasShip(true);
                                 grid[x + i][y].setShipInCell(ship);
                                 // set information for ship
-                                ship.setCell(index++, grid[x][y + i]);
+                                ship.setCell(index++, grid[x + 1][y]);
                                 ship.setHorizontal(isHorizontal);
                             }
                             isPlaced = true;

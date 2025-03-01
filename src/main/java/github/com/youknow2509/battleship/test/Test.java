@@ -20,6 +20,7 @@ public class Test {
         Board board = createBroadGame.getBoard();
         System.out.println("Place Ship: ");
         String[][] placeShip = utils.printResult(board);
+//        int[][] placeShip = utils.placeShip(board);
         for (String[] row : placeShip) {
             System.out.println(Arrays.toString(row));
         }
