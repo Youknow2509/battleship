@@ -6,6 +6,7 @@ import github.com.youknow2509.battleship.model.Cell;
 import github.com.youknow2509.battleship.model.ship.Ship;
 import github.com.youknow2509.battleship.utils.image.ImageViewUtils;
 import github.com.youknow2509.battleship.utils.utils;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -53,6 +54,8 @@ public class GameController {
     @FXML
     public void initialize() {
         System.out.println("initialize");
+        this.botGrid.setDisable(true);
+
 //        showDataToGrid(playerGrid, playerBoard);
 //        showDataToGrid(botGrid, botBoard);
 
@@ -68,6 +71,10 @@ public class GameController {
                 int rowClick = row;
                 int colClick = col;
                 cell.setOnMouseClicked((MouseEvent event) -> {
+                    if (this.playerTurns == 1) {
+                        System.out.println("Not your turn!");
+                        return;
+                    }
                     System.out.println("Clicked on cell: " + rowClick + " " + colClick);
                     Cell cellData = board.getCell(rowClick, colClick);
                     if (cellData.isHasShip()) {
@@ -76,11 +83,47 @@ public class GameController {
                     } else {
                         System.out.println("Miss!");
                         this.clickMiss(gridPane, board, cellData);
+                        botPlay();
                     }
                     cell.setDisable(true);
                 });
             }
         }
+    }
+
+    /** Handle bot play */
+    private void botPlay() {
+        new Thread(() -> {
+            try {
+                Thread.sleep(1000); // Simulate bot thinking for 1 second
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println("Bot is shooting...");
+            int row, col;
+            Cell cellData;
+
+            do {
+                row = (int) (Math.random() * botBoard.getRows());
+                col = (int) (Math.random() * botBoard.getColumns());
+                cellData = botBoard.getCell(row, col);
+            } while (cellData.isHit()); // Only choose cells that haven't been hit
+
+            final Cell finalCellData = cellData;
+            if (cellData.isHasShip()) {
+                System.out.println("Bot hit at: " + row + ", " + col);
+                Platform.runLater(() -> clickInShip(botGrid, botBoard, finalCellData));
+                // If bot hits, bot gets to shoot again
+                botPlay();
+            } else {
+                System.out.println("Bot missed at: " + row + ", " + col);
+                Platform.runLater(() -> {
+                    clickMiss(botGrid, botBoard, finalCellData);
+                    this.playerTurns = 0; // Change turn to player
+                });
+            }
+        }).start();
     }
 
     /** Handle click is ship */
@@ -129,7 +172,7 @@ public class GameController {
     private void showShipWhenSunk(GridPane gridPane, Ship ship) {
         // TODO
     }
-        
+
     /** Render board onto GridPane */
     private void showDataToGrid(GridPane grid, Board board) {
 
