@@ -34,6 +34,11 @@ public class Board {
         this.ships = ships;
     }
 
+    // Get cell by position
+    public Cell getCell(int row, int col) {
+        return grid[row][col];
+    }
+
     // getter and setter
     public int getColumns() {
         return columns;

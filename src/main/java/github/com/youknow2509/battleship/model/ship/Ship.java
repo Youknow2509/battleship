@@ -6,7 +6,7 @@ import github.com.youknow2509.battleship.model.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Ship {
+public class Ship {
     // variables
     private ShipType shipType;
     private int size;
@@ -43,6 +43,15 @@ public abstract class Ship {
         this.hitCount = 0;
         this.cells = new ArrayList<>();
         this.isSunk = false;
+    }
+
+    public Ship(Ship other) {
+        this.shipType = other.shipType;
+        this.size = other.size;
+        this.hitCount = other.hitCount;
+        this.cells = new ArrayList<>(other.cells);
+        this.isSunk = other.isSunk;
+        this.isHorizontal = other.isHorizontal;
     }
 
     /**

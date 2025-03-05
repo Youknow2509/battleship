@@ -21,8 +21,11 @@ public class utils {
             for (int j = 0; j < board.getColumns(); j++) {
                 Cell c = board.getGrid()[i][j];
                 res[i][j] =  c.isHasShip() ? String.valueOf(c.getShipInCell().getSize()) : "*";
+                System.out.print(res[i][j] + " ");
             }
+            System.out.println();
         }
+        System.out.println();
         return res;
     }
 }

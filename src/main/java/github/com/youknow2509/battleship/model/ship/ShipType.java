@@ -16,4 +16,7 @@ public enum ShipType {
     public int getLength() {
         return length;
     }
+    public String getName() {
+        return name();
+    }
 }
