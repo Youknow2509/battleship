@@ -34,6 +34,18 @@ public class Board {
         this.ships = ships;
     }
 
+    // get list of cells
+    public List<Cell> getCells() {
+        List<Cell> cells = new ArrayList<>();
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < columns; col++) {
+                cells.add(grid[row][col]);
+            }
+        }
+        return cells;
+    }
+
+
     // Get cell by position
     public Cell getCell(int row, int col) {
         return grid[row][col];
