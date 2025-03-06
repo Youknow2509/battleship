@@ -4,6 +4,8 @@ import github.com.youknow2509.battleship.model.Board;
 import github.com.youknow2509.battleship.model.Cell;
 import github.com.youknow2509.battleship.model.Position;
 import github.com.youknow2509.battleship.model.ship.Ship;
+import github.com.youknow2509.battleship.model.ship.ShipType;
+import github.com.youknow2509.battleship.utils.create.FactoryCreateShip;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,9 @@ public class CreateBoardGame {
         // Create a deep copy of the ships list
         this.ships_null = new ArrayList<>();
         for (Ship s : ships) {
-            this.ships_null.add(new Ship(s)); // Assuming Ship has a copy constructor
+            ShipType type = s.getShipType();
+            Ship shipCopy = FactoryCreateShip.create(type);
+            ships_null.add(shipCopy);
         }
 
         initializeGrid();
@@ -46,7 +50,9 @@ public class CreateBoardGame {
         // Restore the original ships list
         ships = new ArrayList<>();
         for (Ship ship : ships_null) {
-            ships.add(new Ship(ship)); // Create a fresh copy of each ship
+            ShipType type = ship.getShipType();
+            Ship shipCopy = FactoryCreateShip.create(type);
+            ships.add(shipCopy);
         }
 
         for (Ship ship : ships) {
@@ -88,10 +94,12 @@ public class CreateBoardGame {
         for (int i = 0; i < ship.getSize(); i++) {
             int newX = isHorizontal ? x : x + i;
             int newY = isHorizontal ? y + i : y;
-
+            //
             ship.setCell(i, grid[newX][newY]);
+            // set data cell
             grid[newX][newY].setHasShip(true);
             grid[newX][newY].setShipInCell(ship);
+            grid[newX][newY].setPositionShip(i);
         }
         ship.setHorizontal(isHorizontal);
     }

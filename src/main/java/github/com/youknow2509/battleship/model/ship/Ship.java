@@ -1,12 +1,16 @@
 package github.com.youknow2509.battleship.model.ship;
 
+import github.com.youknow2509.battleship.consts.Consts;
 import github.com.youknow2509.battleship.model.Cell;
 import github.com.youknow2509.battleship.model.Position;
+import github.com.youknow2509.battleship.utils.image.ImageViewUtils;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Ship {
+public abstract class Ship {
     // variables
     private ShipType shipType;
     private int size;
@@ -52,6 +56,47 @@ public class Ship {
         this.cells = new ArrayList<>(other.cells);
         this.isSunk = other.isSunk;
         this.isHorizontal = other.isHorizontal;
+    }
+
+    /** Show the ship on the broad
+     *
+     * @param gridPane GridPane - The gridPane of the game
+     */
+    public void showShipInGridPane(GridPane gridPane) {
+        System.out.println("Show ship in grid pane");
+        ImageViewUtils imageViewUtils = new ImageViewUtils();
+        for (Cell c: getCells()) {
+            int row = c.getPosition().getX();
+            int col = c.getPosition().getY();
+            int index = c.getPositionShip();
+            String pathImage = getElementPathImageShip(index);
+            // Get stack pane from grid pane
+            StackPane stackPane = getStackPane(gridPane, row, col);
+            imageViewUtils.setImageView(
+                    stackPane,
+                    pathImage,
+                    Consts.SIZE_CELL,
+                    Consts.SIZE_CELL,
+                    isHorizontal()
+            );
+        }
+    }
+
+    // helper get path boat with index of ship
+    public String getElementPathImageShip(int index) {
+        return "";
+    }
+
+    // Get stack pane from grid pane
+    public StackPane getStackPane(GridPane grid, int row, int col) {
+        for (javafx.scene.Node node : grid.getChildren()) {
+            if (GridPane.getRowIndex(node) != null && GridPane.getColumnIndex(node) != null) {
+                if (GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == col) {
+                    return (StackPane) node;
+                }
+            }
+        }
+        return null;
     }
 
     /**

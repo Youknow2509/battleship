@@ -3,7 +3,7 @@ package github.com.youknow2509.battleship.controller;
 import github.com.youknow2509.battleship.consts.Consts;
 import github.com.youknow2509.battleship.model.Board;
 import github.com.youknow2509.battleship.model.Cell;
-import github.com.youknow2509.battleship.model.ship.Ship;
+import github.com.youknow2509.battleship.model.ship.*;
 import github.com.youknow2509.battleship.utils.image.ImageViewUtils;
 import github.com.youknow2509.battleship.utils.utils;
 import javafx.application.Platform;
@@ -47,7 +47,7 @@ public class GameController {
         this.botBoard = botBoard;
 
         utils.printResult(playerBoard);
-        utils.printResult(botBoard);
+//        utils.printResult(botBoard);
     }
 
     // Initializes UI when FXML is loaded
@@ -170,7 +170,7 @@ public class GameController {
 
     /** handle show ship when sunk */
     private void showShipWhenSunk(GridPane gridPane, Ship ship) {
-        // TODO
+        ship.showShipInGridPane(gridPane);
     }
 
     /** Render board onto GridPane */
