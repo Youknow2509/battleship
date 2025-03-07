@@ -5,6 +5,7 @@ public class Consts {
     public static final String XML_RESOURCE_GAME = "/github/com/youknow2509/battleship/fxml/game.fxml";
     public static final String XML_RESOURCE_GAME_MENU = "/github/com/youknow2509/battleship/fxml/game_menu.fxml";
     public static final String XML_RESOURCE_INIT_GAME = "/github/com/youknow2509/battleship/fxml/game_bot_init.fxml";
+    public static final String XML_RESOURCE_PAGE_ONE = "/github/com/youknow2509/battleship/fxml/page_1.fxml";
 
     public static final double SIZE_CELL = 30.0;
     // List path images

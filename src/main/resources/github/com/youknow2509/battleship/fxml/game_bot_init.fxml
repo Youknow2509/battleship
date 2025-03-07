@@ -576,7 +576,7 @@
                                 <Image url="@../image/Divider.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="btnBack" fitHeight="39.0" fitWidth="43.0" layoutX="13.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
+                        <ImageView onMouseClicked="#handleBtnBack" fx:id="btnBack" fitHeight="39.0" fitWidth="43.0" layoutX="13.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
                             <image>
                                 <Image url="@../image/back.png" />
                             </image>

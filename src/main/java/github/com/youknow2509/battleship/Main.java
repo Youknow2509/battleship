@@ -16,7 +16,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(Consts.XML_RESOURCE_INIT_GAME));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(Consts.XML_RESOURCE_PAGE_ONE));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setTitle("Battleship Game");

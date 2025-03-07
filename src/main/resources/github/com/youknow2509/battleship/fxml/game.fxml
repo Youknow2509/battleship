@@ -24,7 +24,7 @@
                         <Image url="@../image/Dark3.png" />
                     </image>
                 </ImageView>
-            <TextField id="tv_turn" alignment="CENTER" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" layoutX="763.0" layoutY="-1.0" pickOnBounds="false" prefHeight="50.0" prefWidth="119.0" scaleShape="false" style="-fx-background-color: #ff8c1a; -fx-text-fill: #fff;" text="YOUR TURN">
+            <TextField id="tv_turn" fx:id="imv_turn" alignment="CENTER" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" layoutX="763.0" layoutY="-1.0" pickOnBounds="false" prefHeight="50.0" prefWidth="119.0" scaleShape="false" style="-fx-background-color: #ff8c1a; -fx-text-fill: #fff;" text="YOUR TURN">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

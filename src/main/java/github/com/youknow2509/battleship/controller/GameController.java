@@ -22,6 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,6 +39,8 @@ public class GameController {
     private ImageView battleship_player, aircraft_carrier_player, cruiser_player, submarine_player, destroyer_player;
     @FXML
     private ImageView battleship_bot, aircraft_carrier_bot, cruiser_bot, submarine_bot, destroyer_bot;
+    @FXML
+    private TextField imv_turn;
 
     private final Board playerBoard, botBoard;
     private int playerTurns = 0; // 0 = player, 1 = bot
@@ -214,8 +217,11 @@ public class GameController {
     private void handleMiss(GridPane grid, Cell cell) {
         playerTurns = playerTurns == 0 ? 1 : 0;
         StackPane pane = getStackPane(grid, cell.getPosition().getX(), cell.getPosition().getY());
-        if (pane != null)
+        if (pane != null) {
             new ImageViewUtils().setImageView(pane, Consts.PATH_IMAGE_DAME_MISS, Consts.SIZE_CELL, Consts.SIZE_CELL);
+        }
+        String turn = playerTurns == 0 ? "YOUR TURN" : "BOT TURN";
+        imv_turn.setText(turn);
     }
 
     // Set opacity for ship when it's sunk
