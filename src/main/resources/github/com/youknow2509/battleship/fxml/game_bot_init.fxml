@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<VBox fx:id="root" maxHeight="604.0" maxWidth="881.0" minHeight="505.0" minWidth="595.0" prefHeight="505.0" prefWidth="595.0" stylesheets="@../css/game.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.com.youknow2509.battleship.controller.GameBotInitController">
+    <children>
+        <AnchorPane maxHeight="48.0" maxWidth="881.0" minHeight="29.0" minWidth="592.0" prefHeight="48.0" prefWidth="595.0">
+            <children>
+                <ImageView fitHeight="28.0" fitWidth="91.0" layoutX="250.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/Dark3.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <HBox prefHeight="523.0" prefWidth="492.0">
+            <children>
+                <AnchorPane fx:id="playerBoardContainer" maxHeight="564.0" maxWidth="440.0" minHeight="475.0" minWidth="440.0" prefHeight="475.0" prefWidth="440.0">
+                    <children>
+                        <GridPane fx:id="gridGame" gridLinesVisible="true" hgap="1.0" layoutX="63.0" layoutY="81.0" vgap="1.0">
+                            <columnConstraints>
+                                <ColumnConstraints prefWidth="32" />
+                                <ColumnConstraints prefWidth="32" />
+                                <ColumnConstraints prefWidth="32" />
+                                <ColumnConstraints prefWidth="32" />
+                                <ColumnConstraints prefWidth="32" />
+                                <ColumnConstraints prefWidth="32" />
+                                <ColumnConstraints prefWidth="32" />
+                                <ColumnConstraints prefWidth="32" />
+                                <ColumnConstraints prefWidth="32" />
+                                <ColumnConstraints prefWidth="32" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints prefHeight="32" />
+                                <RowConstraints prefHeight="32" />
+                                <RowConstraints prefHeight="32" />
+                                <RowConstraints prefHeight="32" />
+                                <RowConstraints prefHeight="32" />
+                                <RowConstraints prefHeight="32" />
+                                <RowConstraints prefHeight="32" />
+                                <RowConstraints prefHeight="32" />
+                                <RowConstraints prefHeight="32" />
+                                <RowConstraints prefHeight="32" />
+                            </rowConstraints>
+                            <children>
+                                <!-- Grid Cells 0 -->
+                                <StackPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="3" GridPane.rowIndex="0">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="4" GridPane.rowIndex="0">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="5" GridPane.rowIndex="0">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="6" GridPane.rowIndex="0">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="7" GridPane.rowIndex="0">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="8" GridPane.rowIndex="0">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="9" GridPane.rowIndex="0">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <!-- Grid Cells 1 -->
+                                <StackPane GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="6" GridPane.rowIndex="1">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="7" GridPane.rowIndex="1">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="8" GridPane.rowIndex="1">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="9" GridPane.rowIndex="1">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <!-- Grid Cells 2 -->
+                                <StackPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="6" GridPane.rowIndex="2">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="7" GridPane.rowIndex="2">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="8" GridPane.rowIndex="2">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="9" GridPane.rowIndex="2">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <!-- Grid Cells 3 -->
+                                <StackPane GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="5" GridPane.rowIndex="3">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="6" GridPane.rowIndex="3">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="7" GridPane.rowIndex="3">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="8" GridPane.rowIndex="3">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="9" GridPane.rowIndex="3">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <!-- Grid Cells 4 -->
+                                <StackPane GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="6" GridPane.rowIndex="4">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="7" GridPane.rowIndex="4">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="8" GridPane.rowIndex="4">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="9" GridPane.rowIndex="4">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <!-- Grid Cells 5 -->
+                                <StackPane GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="3" GridPane.rowIndex="5">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="4" GridPane.rowIndex="5">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="5" GridPane.rowIndex="5">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="6" GridPane.rowIndex="5">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="7" GridPane.rowIndex="5">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="8" GridPane.rowIndex="5">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="9" GridPane.rowIndex="5">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <!-- Grid Cells 6 -->
+                                <StackPane GridPane.columnIndex="0" GridPane.rowIndex="6">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="4" GridPane.rowIndex="6">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="6" GridPane.rowIndex="6">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="7" GridPane.rowIndex="6">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="8" GridPane.rowIndex="6">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="9" GridPane.rowIndex="6">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <!-- Grid Cells 7 -->
+                                <StackPane GridPane.columnIndex="0" GridPane.rowIndex="7">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="7">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="3" GridPane.rowIndex="7">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="4" GridPane.rowIndex="7">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="5" GridPane.rowIndex="7">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="6" GridPane.rowIndex="7">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="7" GridPane.rowIndex="7">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="8" GridPane.rowIndex="7">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="9" GridPane.rowIndex="7">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <!-- Grid Cells 8 -->
+                                <StackPane GridPane.columnIndex="0" GridPane.rowIndex="8">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="8">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="3" GridPane.rowIndex="8">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="4" GridPane.rowIndex="8">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="5" GridPane.rowIndex="8">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="6" GridPane.rowIndex="8">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="7" GridPane.rowIndex="8">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="8" GridPane.rowIndex="8">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="9" GridPane.rowIndex="8">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <!-- Grid Cells 9 -->
+                                <StackPane GridPane.columnIndex="0" GridPane.rowIndex="9">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="3" GridPane.rowIndex="9">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="4" GridPane.rowIndex="9">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="5" GridPane.rowIndex="9">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="6" GridPane.rowIndex="9">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="7" GridPane.rowIndex="9">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="8" GridPane.rowIndex="9">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                                <StackPane GridPane.columnIndex="9" GridPane.rowIndex="9">
+                                    <Rectangle fill="#c3bcbc" height="32" width="32" />
+
+                                </StackPane>
+                            </children>
+                        </GridPane>
+                        <StackPane layoutX="30.0" layoutY="81.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="1" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="30.0" layoutY="114.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="2" scaleShape="false" styleClass="text-number" text="2" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="30.0" layoutY="147.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="3" scaleShape="false" styleClass="text-number" text="3" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="30.0" layoutY="180.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="4" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="30.0" layoutY="213.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="5" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="30.0" layoutY="246.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="6" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="30.0" layoutY="279.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="7" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="30.0" layoutY="312.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="8" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="30.0" layoutY="345.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="9" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="30.0" layoutY="378.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField alignment="CENTER" cacheShape="false" centerShape="false" depthTest="DISABLE" disable="true" editable="false" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="30.0" prefWidth="31.0" promptText="10" scaleShape="false" style="-fx-text-fill: rgb(151, 156, 172); -fx-font-family: &quot;Futura&quot;; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-transform: uppercase; -fx-alignment: center;" text="10" StackPane.alignment="CENTER_LEFT">
+                                    <padding>
+                                        <Insets right="1.0" />
+                                    </padding>
+                                </TextField>
+                            </children>
+                        </StackPane>
+                        <StackPane cacheShape="false" centerShape="false" disable="true" layoutX="30.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" pickOnBounds="false" prefHeight="32.5" prefWidth="32.5" scaleShape="false" style="-fx-border-color: black;" />
+                        <StackPane layoutX="62.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="A" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="95.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="B" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="128.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="C" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="161.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="D" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="195.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="E" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="228.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="F" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="261.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="G" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="294.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="H" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="327.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="I" />
+                            </children>
+                        </StackPane>
+                        <StackPane layoutX="360.0" layoutY="48.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                            <children>
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="J" />
+                            </children>
+                        </StackPane>
+                        <ImageView fitHeight="565.0" fitWidth="2.0" layoutX="421.0" layoutY="-27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/Divider.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="btnBack" fitHeight="39.0" fitWidth="43.0" layoutX="13.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true" styleClass="button">
+                            <image>
+                                <Image url="@../image/back.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="btnRandomGame" fitHeight="39.0" fitWidth="53.0" layoutX="23.0" layoutY="424.0" onMouseClicked="#handleBtnRandomGame" pickOnBounds="true" preserveRatio="true" styleClass="button">
+                            <image>
+                                <Image url="@../image/load.png" />
+                            </image>
+                        </ImageView>
+
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <ImageView fx:id="battleship_player" fitHeight="133.0" fitWidth="55.0" layoutX="-32.0" layoutY="-464.0" pickOnBounds="true" preserveRatio="true" x="84.0" y="496.0">
+                            <image>
+                                <Image url="@../image/Battleship.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="aircraft_carrier_player" fitHeight="161.0" fitWidth="37.0" layoutX="17.0" layoutY="-431.0" pickOnBounds="true" preserveRatio="true" x="84.0" y="496.0">
+                            <image>
+                                <Image url="@../image/AircraftCarrier.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="cruiser_player" fitHeight="68.0" fitWidth="41.0" layoutX="15.0" layoutY="-249.0" pickOnBounds="true" preserveRatio="true" x="84.0" y="496.0">
+                            <image>
+                                <Image url="@../image/Cruiser.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="submarine_player" fitHeight="99.0" fitWidth="40.0" layoutX="-33.0" layoutY="-300.0" pickOnBounds="true" preserveRatio="true" x="84.0" y="496.0">
+                            <image>
+                                <Image url="@../image/Submarine.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fx:id="destroyer_player" fitHeight="103.0" fitWidth="42.0" layoutX="-3.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../image/Destroyer.png" />
+                            </image>
+                        </ImageView>
+                  <ImageView fx:id="btnPlay" fitHeight="81.0" fitWidth="80.0" layoutX="37.0" layoutY="396.0" onMouseClicked="#handleBtnPlayGame" pickOnBounds="true" preserveRatio="true" styleClass="button">
+                     <image>
+                        <Image url="@../image/play.png" />
+                     </image>
+                  </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+    </children>
+</VBox>

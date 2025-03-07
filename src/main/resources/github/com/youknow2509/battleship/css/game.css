@@ -47,3 +47,10 @@
     -fx-text-transform: uppercase;           /* Uppercase text */
     -fx-rotate: 0;                            /* No rotation */
 }
+
+.button:hover {
+    -fx-background-color: #ff5733; /* Change background color on hover */
+    -fx-text-fill: white; /* Change text color on hover */
+    -fx-scale-x: 1.1; /* Slightly increase size */
+    -fx-scale-y: 1.1;
+}

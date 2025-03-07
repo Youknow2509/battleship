@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 <?import java.lang.String?>
-<VBox maxHeight="604.0" maxWidth="881.0" minHeight="604.0" minWidth="881.0" prefHeight="604.0" prefWidth="881.0" stylesheets="@../css/game.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" maxHeight="604.0" maxWidth="881.0" minHeight="604.0" minWidth="881.0" prefHeight="604.0" prefWidth="881.0" stylesheets="@../css/game.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane maxHeight="48.0" maxWidth="881.0" minHeight="48.0" minWidth="881.0" prefHeight="48.0" prefWidth="881.0">
             <children>
@@ -15,13 +24,23 @@
                         <Image url="@../image/Dark3.png" />
                     </image>
                 </ImageView>
+            <TextField id="tv_turn" alignment="CENTER" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" layoutX="763.0" layoutY="-1.0" pickOnBounds="false" prefHeight="50.0" prefWidth="119.0" scaleShape="false" style="-fx-background-color: #ff8c1a; -fx-text-fill: #fff;" text="YOUR TURN">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </TextField>
+            <ImageView fx:id="img_back" fitHeight="47.0" fitWidth="42.0" layoutX="11.0" layoutY="13.0" onMouseClicked="#handleClickMenu" pickOnBounds="true" preserveRatio="true" styleClass="button">
+               <image>
+                  <Image url="@../image/menu.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
                 <AnchorPane fx:id="playerBoardContainer" maxHeight="564.0" maxWidth="440.0" minHeight="564.0" minWidth="440.0" prefHeight="564.0" prefWidth="440.0">
                     <children>
-                        <TextField fx:id="playerTitle" alignment="CENTER" editable="false" layoutX="40.0" layoutY="25.0" maxHeight="32.0" maxWidth="353.0" minHeight="32.0" minWidth="353.0" prefHeight="32.0" prefWidth="353.0" text="YOUR FLEET">
+                        <TextField fx:id="playerTitle" alignment="CENTER" cacheShape="false" centerShape="false" editable="false" focusTraversable="false" layoutX="40.0" layoutY="25.0" maxHeight="32.0" maxWidth="353.0" minHeight="32.0" minWidth="353.0" pickOnBounds="false" prefHeight="32.0" prefWidth="353.0" scaleShape="false" text="YOUR FLEET">
                             <styleClass>
                                 <String fx:value="your-fleet" />
                                 <String fx:value="text-your-fleet" />
@@ -467,107 +486,107 @@
                         </GridPane>
                         <StackPane layoutX="31.0" layoutY="120.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="1" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="1" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="153.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="2" styleClass="text-number" text="2" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="2" scaleShape="false" styleClass="text-number" text="2" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="186.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="3" styleClass="text-number" text="3" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="3" scaleShape="false" styleClass="text-number" text="3" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="219.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="4" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="4" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="252.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="5" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="5" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="285.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="6" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="6" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="318.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="7" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="7" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="351.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="8" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="8" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="384.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="9" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="9" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="417.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField alignment="CENTER" depthTest="DISABLE" editable="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="31.0" promptText="10" style="-fx-text-fill: rgb(151, 156, 172); -fx-font-family: &quot;Futura&quot;; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-transform: uppercase; -fx-alignment: center;" text="10" StackPane.alignment="CENTER_LEFT">
+                                <TextField alignment="CENTER" cacheShape="false" centerShape="false" depthTest="DISABLE" disable="true" editable="false" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="30.0" prefWidth="31.0" promptText="10" scaleShape="false" style="-fx-text-fill: rgb(151, 156, 172); -fx-font-family: &quot;Futura&quot;; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-transform: uppercase; -fx-alignment: center;" text="10" StackPane.alignment="CENTER_LEFT">
                                     <padding>
                                         <Insets right="1.0" />
                                     </padding>
                                 </TextField>
                             </children>
                         </StackPane>
-                        <StackPane layoutX="31.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;" />
+                        <StackPane cacheShape="false" centerShape="false" disable="true" layoutX="31.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" pickOnBounds="false" prefHeight="32.5" prefWidth="32.5" scaleShape="false" style="-fx-border-color: black;" />
                         <StackPane layoutX="64.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="A" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="A" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="97.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="B" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="B" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="130.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="C" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="C" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="163.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="D" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="D" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="196.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="E" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="E" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="229.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="F" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="F" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="262.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="G" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="G" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="295.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="H" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="H" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="328.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="I" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="I" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="361.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="J" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="J" />
                             </children>
                         </StackPane>
                         <ImageView fx:id="battleship_player" fitHeight="104.0" fitWidth="35.0" layoutX="-3.0" layoutY="-60.0" pickOnBounds="true" preserveRatio="true" rotate="90.0" x="84.0" y="496.0">
@@ -1141,107 +1160,107 @@
                         </GridPane>
                         <StackPane layoutX="31.0" layoutY="120.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="1" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" focusTraversable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="1" />
                             </children>
                         </StackPane>
-                        <StackPane layoutX="31.0" layoutY="153.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
+                        <StackPane cacheShape="false" centerShape="false" layoutX="31.0" layoutY="153.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" pickOnBounds="false" prefHeight="32.5" prefWidth="32.5" scaleShape="false" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="2" styleClass="text-number" text="2" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" focusTraversable="false" pickOnBounds="false" promptText="2" scaleShape="false" styleClass="text-number" text="2" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="186.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="3" styleClass="text-number" text="3" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" focusTraversable="false" pickOnBounds="false" promptText="3" scaleShape="false" styleClass="text-number" text="3" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="219.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="4" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" focusTraversable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="4" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="252.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="5" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" focusTraversable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="5" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="285.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="6" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" focusTraversable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="6" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="318.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="7" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" focusTraversable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="7" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="351.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="8" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" focusTraversable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="8" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="384.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField editable="false" promptText="1" styleClass="text-number" text="9" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" editable="false" focusTraversable="false" pickOnBounds="false" promptText="1" scaleShape="false" styleClass="text-number" text="9" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="31.0" layoutY="417.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField alignment="CENTER" depthTest="DISABLE" editable="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="31.0" promptText="10" style="-fx-text-fill: rgb(151, 156, 172); -fx-font-family: &quot;Futura&quot;; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-transform: uppercase; -fx-alignment: center;" text="10" StackPane.alignment="CENTER_LEFT">
+                                <TextField alignment="CENTER" cacheShape="false" centerShape="false" depthTest="DISABLE" disable="true" editable="false" focusTraversable="false" nodeOrientation="LEFT_TO_RIGHT" pickOnBounds="false" prefHeight="30.0" prefWidth="31.0" promptText="10" scaleShape="false" style="-fx-text-fill: rgb(151, 156, 172); -fx-font-family: &quot;Futura&quot;; -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-transform: uppercase; -fx-alignment: center;" text="10" StackPane.alignment="CENTER_LEFT">
                                     <padding>
                                         <Insets right="1.0" />
                                     </padding>
                                 </TextField>
                             </children>
                         </StackPane>
-                        <StackPane layoutX="31.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;" />
+                        <StackPane cacheShape="false" centerShape="false" disable="true" layoutX="31.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" pickOnBounds="false" prefHeight="32.5" prefWidth="32.5" scaleShape="false" style="-fx-border-color: black;" />
                         <StackPane layoutX="64.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="A" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="A" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="97.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="B" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="B" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="130.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="C" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="C" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="163.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="D" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="D" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="196.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="E" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="E" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="229.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="F" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="F" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="262.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="G" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="G" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="295.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="H" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="H" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="328.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="I" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="I" />
                             </children>
                         </StackPane>
                         <StackPane layoutX="361.0" layoutY="88.0" maxHeight="32.5" maxWidth="32.5" minHeight="32.5" minWidth="32.5" prefHeight="32.5" prefWidth="32.5" style="-fx-border-color: black;">
                             <children>
-                                <TextField styleClass="text-number" text="J" />
+                                <TextField cacheShape="false" centerShape="false" disable="true" pickOnBounds="false" scaleShape="false" styleClass="text-number" text="J" />
                             </children>
                         </StackPane>
                         <ImageView fx:id="battleship_bot" fitHeight="104.0" fitWidth="35.0" layoutX="-3.0" layoutY="-60.0" pickOnBounds="true" preserveRatio="true" rotate="90.0" x="84.0" y="496.0">

@@ -1,6 +1,7 @@
 module github.com.youknow2509.battleship {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens github.com.youknow2509.battleship to javafx.fxml;

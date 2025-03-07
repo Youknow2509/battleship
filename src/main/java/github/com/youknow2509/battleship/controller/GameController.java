@@ -7,21 +7,28 @@ import github.com.youknow2509.battleship.model.ship.Ship;
 import github.com.youknow2509.battleship.model.ship.ShipType;
 import github.com.youknow2509.battleship.utils.image.ImageViewUtils;
 import github.com.youknow2509.battleship.utils.utils;
-import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.util.Duration;
-
+import javafx.stage.Stage;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class GameController {
+    @FXML
+    private VBox root;
     @FXML
     private GridPane playerGrid, botGrid;
     @FXML
@@ -49,6 +56,30 @@ public class GameController {
         setupShipMappings();
         renderGrid(botGrid, botBoard);
         setupPlayerClickEvents();
+    }
+
+    // handle click menu button - handle popup menu
+    public void handleClickMenu(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Consts.XML_RESOURCE_GAME_MENU));
+            Parent root = loader.load();
+
+            // Get the controller instance from the FXMLLoader
+            GameMenuController controller = loader.getController();
+
+            // Get the current stage from the event source
+            Stage currentStage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+
+            // Create a new stage and set it to the controller
+            Stage newStage = new Stage();
+            controller.initialize(currentStage);
+
+            newStage.setTitle("Menu");
+            newStage.setScene(new Scene(root));
+            newStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // check winner
@@ -80,9 +111,11 @@ public class GameController {
         if (player == 0) {
             playerTitle.setText("You Win!");
             playerTitle.setStyle("-fx-background-color: #00ff00");
+            botGrid.setOpacity(0.2);
         } else {
             playerTitle.setText("You Lose!");
             playerTitle.setStyle("-fx-background-color: #ff0000");
+            playerGrid.setOpacity(0.2);
         }
 
         // Add animation for the title change
