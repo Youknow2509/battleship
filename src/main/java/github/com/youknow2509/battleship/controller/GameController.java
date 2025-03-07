@@ -7,6 +7,7 @@ import github.com.youknow2509.battleship.model.ship.Ship;
 import github.com.youknow2509.battleship.model.ship.ShipType;
 import github.com.youknow2509.battleship.utils.image.ImageViewUtils;
 import github.com.youknow2509.battleship.utils.utils;
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -15,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,6 +51,45 @@ public class GameController {
         setupPlayerClickEvents();
     }
 
+    // check winner
+    private void checkWinner(int playerTurns) {
+        switch (playerTurns) {
+            case 0:
+                if (playerBoard.isAllShipsSunk()) {
+                    handleWinner(0);
+                }
+                break;
+            case 1:
+                if (botBoard.isAllShipsSunk()) {
+                    handleWinner(1);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    // Handle the winner of the game
+    private void handleWinner(int player) {
+        // Disable both grids when the game ends
+        playerGrid.setDisable(true);
+        botGrid.setDisable(true);
+        botTitle.setOpacity(0.0);
+
+        // Set the winner and loser titles
+        if (player == 0) {
+            playerTitle.setText("You Win!");
+            playerTitle.setStyle("-fx-background-color: #00ff00");
+        } else {
+            playerTitle.setText("You Lose!");
+            playerTitle.setStyle("-fx-background-color: #ff0000");
+        }
+
+        // Add animation for the title change
+        utils.animateTitle(playerTitle);
+    }
+
+    // Set image ship for player and bot
     private void setupShipMappings() {
         playerShips.put(ShipType.BATTLESHIP, battleship_player);
         playerShips.put(ShipType.CARRIER, aircraft_carrier_player);
@@ -63,6 +104,7 @@ public class GameController {
         botShips.put(ShipType.DESTROYER, destroyer_bot);
     }
 
+    // listen player click event in grid
     private void setupPlayerClickEvents() {
         playerGrid.getChildren().forEach(node -> node.setOnMouseClicked(event -> {
             if (playerTurns == 1) return;
@@ -74,6 +116,7 @@ public class GameController {
         }));
     }
 
+    // handle player click event
     private void handlePlayerClick(int row, int col) {
         Cell cell = playerBoard.getCell(row, col);
         if (cell.isHasShip()) {
@@ -84,6 +127,7 @@ public class GameController {
         }
     }
 
+    // handle bot choose cell to hit
     private void botTurn() {
         new Thread(() -> {
             try {
@@ -112,7 +156,8 @@ public class GameController {
         }).start();
     }
 
-    private void handleShipHit(GridPane grid, Cell cell, int player)    {
+    // handle when ship hit for user or bot
+    private void handleShipHit(GridPane grid, Cell cell, int player)     {
         StackPane pane = getStackPane(grid, cell.getPosition().getX(), cell.getPosition().getY());
         if (pane == null) return;
 
@@ -123,11 +168,16 @@ public class GameController {
         ship.setHitCount(ship.getHitCount() + 1);
         if (ship.isSunk()) {
             pane.getChildren().clear();
+            // Show ship in grid
             ship.getCells().forEach(c -> c.getShipInCell().showShipInGridPane(grid));
+            // opacity image hip in button grid
             setShipOpacity(ship.getShipType(), player);
+            // check winner or loser
+            checkWinner(player);
         }
     }
 
+    // Change turn and handle view in grid when miss ship
     private void handleMiss(GridPane grid, Cell cell) {
         playerTurns = playerTurns == 0 ? 1 : 0;
         StackPane pane = getStackPane(grid, cell.getPosition().getX(), cell.getPosition().getY());
@@ -135,11 +185,13 @@ public class GameController {
             new ImageViewUtils().setImageView(pane, Consts.PATH_IMAGE_DAME_MISS, Consts.SIZE_CELL, Consts.SIZE_CELL);
     }
 
+    // Set opacity for ship when it's sunk
     private void setShipOpacity(ShipType type, int player) {
         ImageView imageView = player == 1 ? botShips.get(type) : playerShips.get(type);
         if (imageView != null) imageView.setOpacity(0.5);
     }
 
+    // render grid with ship - for bot
     private void renderGrid(GridPane grid, Board board) {
         board.getCells().stream().filter(Cell::isHasShip).forEach(cell -> {
             StackPane pane = getStackPane(grid, cell.getPosition().getX(), cell.getPosition().getY());
@@ -148,6 +200,7 @@ public class GameController {
         });
     }
 
+    // get stack pane in grid
     private StackPane getStackPane(GridPane grid, int row, int col) {
         return grid.getChildren().stream()
                 .filter(node -> GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == col)

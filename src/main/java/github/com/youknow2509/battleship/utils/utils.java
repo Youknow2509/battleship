@@ -2,6 +2,13 @@ package github.com.youknow2509.battleship.utils;
 
 import github.com.youknow2509.battleship.model.Board;
 import github.com.youknow2509.battleship.model.Cell;
+import javafx.animation.AnimationTimer;
+import javafx.geometry.Insets;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
+import javafx.scene.paint.Color;
 
 public class utils {
     // out: place ship on the board 0 - have ship, 1 - no ship
@@ -28,4 +35,31 @@ public class utils {
         System.out.println();
         return res;
     }
+
+    // get background color
+    public static Background getBackground(Color color) {
+        return new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY));
+    }
+
+    // animateTitle
+    public static void animateTitle(TextField title) {
+        AnimationTimer timer = new AnimationTimer() {
+            private long lastTime = 0;
+
+            @Override
+            public void handle(long now) {
+                if (lastTime == 0) lastTime = now;
+                double timeElapsed = (now - lastTime) / 1_000_000_000.0;
+                lastTime = now;
+
+                // Đổi opacity theo thời gian (giảm dần rồi tăng lên)
+                double opacity = (Math.sin(timeElapsed * Math.PI) + 1) / 2; // Giá trị opacity dao động từ 0 đến 1
+
+                title.setOpacity(opacity);
+            }
+        };
+        timer.start();
+    }
+
+
 }

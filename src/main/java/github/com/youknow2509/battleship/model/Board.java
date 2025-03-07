@@ -45,6 +45,15 @@ public class Board {
         return cells;
     }
 
+    // check all ship sunk
+    public boolean isAllShipsSunk() {
+        for (Ship ship : ships) {
+            if (!ship.isSunk()) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     // Get cell by position
     public Cell getCell(int row, int col) {
