@@ -10,6 +10,7 @@ import github.com.youknow2509.battleship.utils.utils;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -21,10 +22,12 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GameController {
@@ -76,6 +79,11 @@ public class GameController {
             // Create a new stage and set it to the controller
             Stage newStage = new Stage();
             controller.initialize(currentStage);
+
+            // Center the stage on the screen
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            newStage.setX((screenBounds.getWidth() - newStage.getWidth()) / 2);
+            newStage.setY((screenBounds.getHeight() - newStage.getHeight()) / 2);
 
             newStage.setTitle("Menu");
             newStage.setScene(new Scene(root));
@@ -171,6 +179,11 @@ public class GameController {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            // get data from board
+            int[][] placeShip = utils.getGridPaneReq(playerBoard);
+            List<Integer> getListShipNotSunk = utils.getListShipNotSunk(playerBoard);
+            // debug show
+            showDataReq(placeShip, getListShipNotSunk);
 
             Cell cell;
             do {
@@ -244,5 +257,20 @@ public class GameController {
         return grid.getChildren().stream()
                 .filter(node -> GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == col)
                 .map(node -> (StackPane) node).findFirst().orElse(null);
+    }
+
+    // help show data send to ai
+    public void showDataReq(int[][] placeShip, List<Integer> getListShipNotSunk) {
+        System.out.println("Place ship: ");
+        for (int i = 0; i < placeShip.length; i++) {
+            for (int j = 0; j < placeShip[i].length; j++) {
+                System.out.print(placeShip[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("List ship not sunk: " + getListShipNotSunk);
+        for (int i = 0; i < getListShipNotSunk.size(); i++) {
+            System.out.println("Ship " + getListShipNotSunk.get(i) + " not sunk");
+        }
     }
 }

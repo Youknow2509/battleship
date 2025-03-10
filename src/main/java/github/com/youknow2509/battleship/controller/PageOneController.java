@@ -4,11 +4,13 @@ import github.com.youknow2509.battleship.Main;
 import github.com.youknow2509.battleship.consts.Consts;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -46,6 +48,11 @@ public class PageOneController {
             Parent root = fxmlLoader.load();
             Scene newScene = new Scene(root);
             Stage stage = (Stage) scene.getWindow();
+            // set stage center
+            Screen screen = Screen.getPrimary();
+            Rectangle2D bounds = screen.getVisualBounds();
+            stage.setX(bounds.getMinX() + (bounds.getWidth() - scene.getWidth()) / 2);
+            stage.setY(bounds.getMinY() + (bounds.getHeight() - scene.getHeight()) / 2);
             stage.setTitle("Battleship Game");
             stage.setScene(newScene);
             stage.show();

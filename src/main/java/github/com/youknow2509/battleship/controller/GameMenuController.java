@@ -4,9 +4,11 @@ import github.com.youknow2509.battleship.Main;
 import github.com.youknow2509.battleship.consts.Consts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class GameMenuController {
@@ -44,6 +46,12 @@ public class GameMenuController {
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             Stage stage1 = new Stage();
+            // set stage center
+            Screen screen = Screen.getPrimary();
+            Rectangle2D bounds = screen.getVisualBounds();
+            stage.setX(bounds.getMinX() + (bounds.getWidth() - scene.getWidth()) / 2);
+            stage.setY(bounds.getMinY() + (bounds.getHeight() - scene.getHeight()) / 2);
+
             stage1.setTitle("Battleship Game");
             stage1.setScene(scene);
             stage1.show();

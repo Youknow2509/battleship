@@ -2,6 +2,7 @@ package github.com.youknow2509.battleship.utils;
 
 import github.com.youknow2509.battleship.model.Board;
 import github.com.youknow2509.battleship.model.Cell;
+import github.com.youknow2509.battleship.model.ship.Ship;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Insets;
 import javafx.scene.control.TextField;
@@ -10,16 +11,42 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class utils {
     // out: place ship on the board 0 - have ship, 1 - no ship
     public static int[][] placeShip(Board board) {
         int[][] broad = new int[board.getRows()][board.getColumns()];
         for (int i = 0; i < board.getRows(); i++) {
             for (int j = 0; j < board.getColumns(); j++) {
-                broad[i][j] = board.getGrid()[i][j].isHasShip() ? 0 : 1;
+                broad[i][j] = board.getGrid()[i][j].isHasShip() ? 1 : 0;
             }
         }
         return broad;
+    }
+
+    // out: list of ships that are not sunk
+    public static List<Integer> getListShipNotSunk(Board board) {
+        List<Integer> listShipDontSunk = new ArrayList<Integer>();
+        for (int i = 0; i < board.getShips().size(); i++) {
+            Ship ship = board.getShips().get(i);
+            if (!ship.isSunk()) {
+                listShipDontSunk.add(ship.getSize());
+            }
+        }
+        return listShipDontSunk;
+    }
+
+    // out: data gridpane req
+    public static int[][] getGridPaneReq(Board board) {
+        int[][] gridPaneReq = new int[board.getRows()][board.getColumns()];
+        for (int i = 0; i < board.getRows(); i++) {
+            for (int j = 0; j < board.getColumns(); j++) {
+                gridPaneReq[i][j] = board.getGrid()[i][j].isHit() ? 1 : 0;
+            }
+        }
+        return gridPaneReq;
     }
 
     public static String[][] printResult(Board board) {
