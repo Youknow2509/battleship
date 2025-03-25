@@ -2,6 +2,7 @@ package github.com.youknow2509.battleship.consts;
 
 public class Consts {
     // List variables constants
+    public static final String XML_RESOURCE_COPYRIGHT = "/github/com/youknow2509/battleship/fxml/copy_right.fxml";
     public static final String XML_RESOURCE_GAME = "/github/com/youknow2509/battleship/fxml/game.fxml";
     public static final String XML_RESOURCE_GAME_MENU = "/github/com/youknow2509/battleship/fxml/game_menu.fxml";
     public static final String XML_RESOURCE_INIT_GAME = "/github/com/youknow2509/battleship/fxml/game_bot_init.fxml";

@@ -60,4 +60,27 @@ public class PageOneController {
             e.printStackTrace();
         }
     }
+
+    // handle click show copy right
+    public void handleClickShowCopyRight(MouseEvent mouseEvent) {
+        // get scene
+        Scene scene = ((Node) mouseEvent.getSource()).getScene();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource
+                    (Consts.XML_RESOURCE_COPYRIGHT));
+            Parent root = fxmlLoader.load();
+            Scene newScene = new Scene(root);
+            Stage stage = (Stage) scene.getWindow();
+            // set stage center
+            Screen screen = Screen.getPrimary();
+            Rectangle2D bounds = screen.getVisualBounds();
+            stage.setX(bounds.getMinX() + (bounds.getWidth() - scene.getWidth()) / 2);
+            stage.setY(bounds.getMinY() + (bounds.getHeight() - scene.getHeight()) / 2);
+            stage.setTitle("Copy Right");
+            stage.setScene(newScene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.com.youknow2509.battleship.controller.CopyrightController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+    <children>
+        <HBox alignment="CENTER" spacing="10.0">
+            <children>
+                <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                    <image>
+                        <Image url="@../image/copyright.png" />
+                    </image>
+                </ImageView>
+                <Label text="Copyright Information" textAlignment="CENTER">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <Label text="© 2025 YouKnow 2509" textAlignment="CENTER">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label text="All Rights Reserved" textAlignment="CENTER">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+        <Label text="Version 1.0.0" textAlignment="CENTER">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Label>
+
+        <!-- Git Repository Link -->
+        <HBox alignment="CENTER" spacing="5.0">
+            <children>
+                <Label text="Repository:" textAlignment="CENTER">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <Hyperlink fx:id="gitLink" text="https://github.com/Youknow2509/battleship" onAction="#handleGitLink">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Hyperlink>
+            </children>
+        </HBox>
+
+        <!-- Contact Email -->
+        <HBox alignment="CENTER" spacing="5.0">
+            <children>
+                <Label text="Contact:" textAlignment="CENTER">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Label>
+                <Hyperlink fx:id="emailLink" text="lytranvinh.work@gmail.com" onAction="#handleEmailLink">
+                    <font>
+                        <Font size="12.0" />
+                    </font>
+                </Hyperlink>
+            </children>
+        </HBox>
+
+        <Label text="This software is protected by copyright laws and international treaties." textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Label>
+        <Label text="Unauthorized reproduction or distribution of this program, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under the law." textAlignment="CENTER" wrapText="true">
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Label>
+
+        <!-- Access Information -->
+        <HBox alignment="CENTER" spacing="5.0">
+            <children>
+                <Label text="Accessed on:" textAlignment="CENTER">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </Label>
+                <Label fx:id="dateTimeLabel" text="2025-03-25 03:31:42" textAlignment="CENTER">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </Label>
+            </children>
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="5.0">
+            <children>
+                <Label text="User:" textAlignment="CENTER">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </Label>
+                <Label fx:id="userLabel" text="Bot-SomeOne" textAlignment="CENTER">
+                    <font>
+                        <Font size="11.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+
+        <!-- Spacer -->
+        <Region VBox.vgrow="ALWAYS" prefHeight="10.0" />
+
+        <!-- Back Button -->
+        <Button fx:id="backButton" text="Back" onAction="#handleBackButton"
+                style="-fx-background-color: #4a90e2; -fx-text-fill: white; -fx-padding: 8 15 8 15;">
+            <font>
+                <Font size="12.0" />
+            </font>
+        </Button>
+    </children>
+</VBox>
