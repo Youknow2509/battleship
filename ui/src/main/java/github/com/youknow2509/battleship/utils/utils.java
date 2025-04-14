@@ -88,5 +88,16 @@ public class utils {
         timer.start();
     }
 
-
+    // convert int[][] to List<List<Integer>>
+    public static List<List<Integer>> convertToList(int[][] array) {
+        List<List<Integer>> list = new ArrayList<>();
+        for (int i = 0; i < array.length; i++) {
+            List<Integer> innerList = new ArrayList<>();
+            for (int j = 0; j < array[i].length; j++) {
+                innerList.add(array[i][j]);
+            }
+            list.add(innerList);
+        }
+        return list;
+    }
 }

@@ -1,10 +1,16 @@
 package github.com.youknow2509.battleship.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import github.com.youknow2509.battleship.consts.Consts;
 import github.com.youknow2509.battleship.model.Board;
 import github.com.youknow2509.battleship.model.Cell;
+import github.com.youknow2509.battleship.model.repo.BodyReq;
+import github.com.youknow2509.battleship.model.repo.ResponseAI;
 import github.com.youknow2509.battleship.model.ship.Ship;
 import github.com.youknow2509.battleship.model.ship.ShipType;
+import github.com.youknow2509.battleship.utils.gson.BodyReqAdapter;
+import github.com.youknow2509.battleship.utils.gson.ResponseAIAdapter;
 import github.com.youknow2509.battleship.utils.image.ImageViewUtils;
 import github.com.youknow2509.battleship.utils.utils;
 import javafx.application.Platform;
@@ -24,11 +30,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import okhttp3.*;
+import okhttp3.internal.Util;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.sql.Time;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class GameController {
     @FXML
@@ -44,10 +52,13 @@ public class GameController {
     private ImageView battleship_bot, aircraft_carrier_bot, cruiser_bot, submarine_bot, destroyer_bot;
     @FXML
     private TextField imv_turn;
-
+    //
+    private final OkHttpClient client = new OkHttpClient();
+    private final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+    //
     private final Board playerBoard, botBoard;
     private int playerTurns = 0; // 0 = player, 1 = bot
-
+    private int[][] botBoardData;
     private final Map<ShipType, ImageView> playerShips = new HashMap<>(), botShips = new HashMap<>();
 
     public GameController(Board playerBoard, Board botBoard) {
@@ -58,10 +69,35 @@ public class GameController {
 
     @FXML
     public void initialize() {
+        initData();
+        //
         botGrid.setDisable(true);
         setupShipMappings();
         renderGrid(botGrid, botBoard);
         setupPlayerClickEvents();
+    }
+
+    // init data
+    private void initData() {
+        //
+        initBotBoardData();
+        // init okhttp client
+        client.newBuilder()
+                .connectTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .build();
+    }
+
+    // init botBoardData
+    public void initBotBoardData() {
+        // init matrix 10 x 10 full 0
+        botBoardData = new int[botBoard.getRows()][botBoard.getColumns()];
+        for (int i = 0; i < botBoard.getRows(); i++) {
+            for (int j = 0; j < botBoard.getColumns(); j++) {
+                botBoardData[i][j] = 0;
+            }
+        }
     }
 
     // handle click menu button - handle popup menu
@@ -173,36 +209,93 @@ public class GameController {
 
     // handle bot choose cell to hit
     private void botTurn() {
+        // Chuẩn bị dữ liệu yêu cầu
+        List<Integer> listShipNotSunk = utils.getListShipNotSunk(playerBoard);
+        int[][] boardData = this.botBoardData;
+        //
+        Gson gsonReq = new GsonBuilder()
+                .registerTypeAdapter(BodyReq.class, new BodyReqAdapter())
+                .excludeFieldsWithoutExposeAnnotation()
+                .create();
+        Gson gsonRespon = new GsonBuilder()
+                .registerTypeAdapter(ResponseAI.class, new ResponseAIAdapter())
+                .excludeFieldsWithoutExposeAnnotation()
+                .create();
+        //
+        BodyReq data = new BodyReq(
+                utils.convertToList(boardData),
+                listShipNotSunk
+        );
+        String json = gsonReq.toJson(data);
+        System.out.println("Data send to AI: " + json);
+
+        RequestBody body = RequestBody.create(json, JSON);
+        Request request = new Request.Builder()
+                .url("http://127.0.0.1:5000/get_shot")
+                .post(body)
+                .build();
+
+
         new Thread(() -> {
+            // Sleep ngẫu nhiên từ 2 đến 4 giây (2000 - 4000 ms)
             try {
-                Thread.sleep(1000);
+                int delay = 1000 + new Random().nextInt(2001); // random từ 0 đến 2000
+                Thread.sleep(delay);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            // get data from board
-            int[][] placeShip = utils.getGridPaneReq(playerBoard);
-            List<Integer> getListShipNotSunk = utils.getListShipNotSunk(playerBoard);
-            // debug show
-            showDataReq(placeShip, getListShipNotSunk);
-
-            Cell cell;
-            do {
-                int row = (int) (Math.random() * botBoard.getRows());
-                int col = (int) (Math.random() * botBoard.getColumns());
-                cell = botBoard.getCell(row, col);
-            } while (cell.isHit());
-
-            Cell finalCell = cell;
-            Platform.runLater(() -> {
-                if (finalCell.isHasShip()) {
-                    handleShipHit(botGrid, finalCell, 1);
-                    botTurn();
+            // Gọi API
+            int x, y;
+            try (Response response = client.newCall(request).execute()) {
+                if (response.isSuccessful()) {
+                    String resJson = response.body().string();
+                    ResponseAI move = gsonRespon.fromJson(resJson, ResponseAI.class);
+                    x = move.getOptimal_shot().get(0);
+                    y = move.getOptimal_shot().get(1);
                 } else {
-                    handleMiss(botGrid, finalCell);
-                    playerTurns = 0;
+                    // Nếu API không thành công, chọn cell random
+                    Cell cell = getRandomCell();
+                    x = cell.getPosition().getX();
+                    y = cell.getPosition().getY();
+                }
+            } catch (IOException e) {
+                // Xử lý lỗi khi gọi API và chọn cell random
+                Platform.runLater(() -> {
+                    e.printStackTrace();
+                    System.out.println("⚠️ Lỗi gọi API bot: " + e.getMessage());
+                });
+                // Nếu có lỗi, tiếp tục chọn cell random
+                Cell cell = getRandomCell();
+                x = cell.getPosition().getX();
+                y = cell.getPosition().getY();
+            }
+
+            final int finalX = x;
+            final int finalY = y;
+            Platform.runLater(() -> {
+                Cell cell = botBoard.getCell(finalX, finalY);
+                if (cell.isHasShip()) {
+                    handleShipHit(botGrid, cell, 1);
+                    botTurn(); // bot tiếp tục nếu trúng
+                } else {
+                    botBoardData[finalX][finalY] = -1; // đánh trượt
+                    handleMiss(botGrid, cell);
+                    playerTurns = 0; // chuyển lượt cho người chơi
                 }
             });
         }).start();
+    }
+
+    // bot random cell
+    private Cell getRandomCell() {
+        do {
+            int row = (int) (Math.random() * botBoard.getRows());
+            int col = (int) (Math.random() * botBoard.getColumns());
+            Cell cell = botBoard.getCell(row, col);
+            if (!cell.isHit()) {
+                return cell;
+            }
+        } while (true);
     }
 
     // handle when ship hit for user or bot
@@ -215,12 +308,21 @@ public class GameController {
 
         Ship ship = cell.getShipInCell();
         ship.setHitCount(ship.getHitCount() + 1);
+        botBoardData
+                [cell.getPosition().getX()]
+                [cell.getPosition().getY()] = 1; // hit
         if (ship.isSunk()) {
             pane.getChildren().clear();
             // Show ship in grid
             ship.getCells().forEach(c -> c.getShipInCell().showShipInGridPane(grid));
             // opacity image hip in button grid
             setShipOpacity(ship.getShipType(), player);
+            // create data botBoardData 2 is sunk
+            for (int i = 0; i < ship.getCells().size(); i++) {
+                botBoardData
+                        [ship.getCells().get(i).getPosition().getX()]
+                        [ship.getCells().get(i).getPosition().getY()] = 2; // sunk
+            }
             // check winner or loser
             checkWinner(player);
         }
